@@ -33,6 +33,7 @@ RUN tar xvfz /root/20news-bydate.tar.gz -C /root
 RUN rm /opt/hadoop-2.6.2.tar.gz
 RUN rm /opt/apache-mahout-distribution-0.11.0.tar.gz
 RUN rm /root/20news-bydate.tar.gz
+RUN mkdir /root/shared
 
 #RUN echo "export JAVA_HOME=/usr/lib/jvm/java-7-oracle" >> /opt/hadoop-2.6.2/conf/hadoop-env.sh
 
