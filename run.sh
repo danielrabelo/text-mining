@@ -1,8 +1,5 @@
 #!/bin/bash
 
-export JAVA_HOME=/usr/
-export MAHOUT_HEAPSIZE=14000
-
 echo "Create sequential files"
 /opt/apache-mahout-distribution-0.11.0/bin/mahout seqdirectory -i files -o files-seq -ow
 

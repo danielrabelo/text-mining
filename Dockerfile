@@ -25,15 +25,11 @@ RUN apt-get -y install oracle-java7-installer
 RUN apt-get -y install vim
 RUN wget -P /opt http://ftp.unicamp.br/pub/apache/hadoop/common/hadoop-2.6.2/hadoop-2.6.2.tar.gz
 RUN wget -P /opt http://ftp.unicamp.br/pub/apache/mahout/0.11.0/apache-mahout-distribution-0.11.0.tar.gz
-RUN wget -P /root http://people.csail.mit.edu/jrennie/20Newsgroups/20news-bydate.tar.gz
 
 RUN tar xvfz /opt/hadoop-2.6.2.tar.gz -C /opt
 RUN tar xvfz /opt/apache-mahout-distribution-0.11.0.tar.gz -C /opt
-RUN tar xvfz /root/20news-bydate.tar.gz -C /root
 RUN rm /opt/hadoop-2.6.2.tar.gz
 RUN rm /opt/apache-mahout-distribution-0.11.0.tar.gz
-RUN rm /root/20news-bydate.tar.gz
-RUN mkdir /root/shared
 
 #RUN echo "export JAVA_HOME=/usr/lib/jvm/java-7-oracle" >> /opt/hadoop-2.6.2/conf/hadoop-env.sh
 
@@ -43,6 +39,9 @@ RUN echo "export HADOOP_CONF_DIR=\"/opt/hadoop-2.6.2/etc/hadoop\"" >> /root/.bas
 RUN echo "export PATH=\"/opt/hadoop-2.6.2/bin:$PATH\"" >> /root/.bashrc
 RUN echo "export HADOOP_HOME=\"/opt/hadoop-2.6.2\""
 RUN echo "export MAHOUT_HOME=\"/opt/apache-mahout-distribution-0.11.0\"" >> /root/.bashrc
+
+ADD /home/everton.gago/projetos/text-mining/files /root/files
+
 RUN echo "export WORK_DIR=\"/root\"" >> /root/.bashrc
 
 RUN mkdir /root/.ssh
