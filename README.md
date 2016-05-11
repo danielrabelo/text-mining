@@ -1,4 +1,3 @@
-# text-mining
 <h2> Tutorial </h2>
 <p align="justify">
 Este projeto apresenta um classificador de documentos, criado a partir do Apache Hadoop e Apache Mahout. Criamos esta arquitetura a partir de uma plataforma Linux (Ubuntu 14) 64 bits e Docker 1.10.3. Os  procedimentos a seguir descrevem passo a passo a configuração do ambiente de classificação.
