@@ -31,8 +31,6 @@ RUN tar xvfz /opt/apache-mahout-distribution-0.11.0.tar.gz -C /opt
 RUN rm /opt/hadoop-2.6.2.tar.gz
 RUN rm /opt/apache-mahout-distribution-0.11.0.tar.gz
 
-#RUN echo "export JAVA_HOME=/usr/lib/jvm/java-7-oracle" >> /opt/hadoop-2.6.2/conf/hadoop-env.sh
-
 RUN echo "export JAVA_HOME=\"/usr/lib/jvm/java-7-oracle\"" >> /root/.bashrc
 RUN echo "export HADOOP_PREFIX=\"/opt/hadoop-2.6.2\"" >> /root/.bashrc
 RUN echo "export HADOOP_CONF_DIR=\"/opt/hadoop-2.6.2/etc/hadoop\"" >> /root/.bashrc
@@ -40,7 +38,8 @@ RUN echo "export PATH=\"/opt/hadoop-2.6.2/bin:$PATH\"" >> /root/.bashrc
 RUN echo "export HADOOP_HOME=\"/opt/hadoop-2.6.2\""
 RUN echo "export MAHOUT_HOME=\"/opt/apache-mahout-distribution-0.11.0\"" >> /root/.bashrc
 
-ADD /home/everton.gago/projetos/text-mining/files /root/files
+ADD files /root/files
+ADD run.sh /root/run.sh
 
 RUN echo "export WORK_DIR=\"/root\"" >> /root/.bashrc
 
