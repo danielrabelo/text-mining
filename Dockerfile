@@ -37,7 +37,9 @@ RUN echo "export HADOOP_CONF_DIR=\"/opt/hadoop-2.6.2/etc/hadoop\"" >> /root/.bas
 RUN echo "export PATH=\"/opt/hadoop-2.6.2/bin:$PATH\"" >> /root/.bash_aliases
 RUN echo "export HADOOP_HOME=\"/opt/hadoop-2.6.2\""
 RUN echo "export MAHOUT_HOME=\"/opt/apache-mahout-distribution-0.11.0\"" >> /root/.bash_aliases
-RUN echo "export HADOOP_OPTS=\"-Xmx4096m\"" >> /root/.bash_aliases
+
+RUN echo "export HADOOP_OPTS=\"-XX:-UseGCOverheadLimit\"" >> /root/.bash_aliases
+RUN sed -i "s/#export HADOOP_HEAPSIZE=/export HADOOP_HEAPSIZE=4000/g" /opt/hadoop-2.6.2/etc/hadoop/hadoop-env.sh
 
 ADD files /root/files
 ADD run.sh /root/run.sh
