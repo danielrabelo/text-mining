@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/bin/bash -e
+
+source .bash_aliases ; export
 
 echo "Create sequential files"
 /opt/apache-mahout-distribution-0.11.0/bin/mahout seqdirectory -i files -o files-seq -ow
@@ -13,4 +15,7 @@ echo "Training..."
 /opt/apache-mahout-distribution-0.11.0/bin/mahout trainnb -i files-train-vectors -o model -li labelindex -ow -c
 
 echo "Test..."
-/opt/apache-mahout-distribution-0.11.0/bin/mahout testnb -i files-test-vectors -m model -l labelindex -ow -o files-testing -c
+/opt/apache-mahout-distribution-0.11.0/bin/mahout testnb -i files-test-vectors -m model -l labelindex -ow -o files-testing -c > mahout-testnb.txt 2>&1
+
+echo "Copying result files..."
+cp -R files-vectors model mahout-testnb.txt files/
