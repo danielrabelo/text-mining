@@ -15,7 +15,7 @@ echo "Training..."
 /opt/apache-mahout-distribution-0.11.0/bin/mahout trainnb -i files-train-vectors -o model -li labelindex -ow -c
 
 echo "Test..."
-/opt/apache-mahout-distribution-0.11.0/bin/mahout testnb -i files-test-vectors -m model -l labelindex -ow -o files-testing -c > mahout-testnb.txt 2>&1
+/opt/apache-mahout-distribution-0.11.0/bin/mahout testnb -i files-test-vectors -m model -l labelindex -ow -o files-testing -c > mahout-testnb.log 2>&1
 
 echo "Copying result files..."
-cp -R files-vectors model mahout-testnb.txt files/
+cp -R files-vectors model mahout-testnb.log files/
