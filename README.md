@@ -33,3 +33,6 @@ Depois de conectar na máquina virtual, basta executar o comendo:
 
 > chmod 755 run.sh
 > ./run.sh
+
+Link da apresentação no InfoQ por Everton Gago:
+https://www.infoq.com/br/presentations/classificacao-de-documentos-baseada-em-inteligencia-artificial
